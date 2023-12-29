@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a nextjs project that allows users to create new pdfs from existing pdfs.. by rearrangin and deleting pages from existing ones
 
 ## Getting Started
 

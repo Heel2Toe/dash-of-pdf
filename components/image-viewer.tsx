@@ -42,7 +42,7 @@ const downloadPdf = async() => {
     <div className="flex flex-col">
       <Button 
          variant="secondary" 
-         className=" self-end mr-2"
+         className="self-center mt-3 sm:self-end sm:mt-0 mr-2"
          onClick={downloadPdf}
          >
           Download Pdf

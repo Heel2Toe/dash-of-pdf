@@ -9,8 +9,8 @@ const Header: React.FC<HeaderProps> = ({
 }) => {
     return ( 
         <div className="w-[80%] flex flex-col border-b p-2">
-        <h1 className="text-2xl font-semibold">{heading}</h1>
-        <p className="text-gray-500">{desc}</p>
+        <h1 className="text-xl sm:text-2xl font-semibold">{heading}</h1>
+        <p className="text-gray-500 text-xs sm:text-sm">{desc}</p>
        </div>
      );
 }

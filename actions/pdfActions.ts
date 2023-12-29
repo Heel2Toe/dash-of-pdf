@@ -74,11 +74,13 @@ export const getPdf = async(images: string[]) => {
     if(result.status == 200){
       
       const blob = new Blob([result.data], { type: 'application/pdf' });
-
       const blobUrl = URL.createObjectURL(blob);
-
-      window.location.href = blobUrl;
-
+      const a = document.createElement('a');
+      a.href = blobUrl;
+      a.download = 'download.pdf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
       URL.revokeObjectURL(blobUrl);
       toast.success('PDF Generated');
     }
