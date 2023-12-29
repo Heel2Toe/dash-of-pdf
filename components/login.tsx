@@ -4,8 +4,8 @@ import { loginUser } from "@/actions/loginUser";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
-import Button from "./ui/button";
 import classNames from "classnames";
+import { Github } from "lucide-react";
 
 const Login = () => {
   const { updateUser, email } = useUser();
@@ -24,9 +24,8 @@ const Login = () => {
     } catch (err) {
       toast.error("Something went wrong");
       console.log(err);
-    }
-    finally{
-      setLoading(false)
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -38,12 +37,20 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="h-full flex flex-col space-y-4 p-32 items-center">
+    <div className="relative h-full flex flex-col space-y-4 p-32 items-center">
+      <Github
+       onClick={()=>router.push('https://github.com/Heel2Toe/dash-of-pdf')}
+       className="absolute flex space-x-3 top-5 left-5 h-10 w-10 hover:-translate-y-2 text-gray-600 
+                  cursor-pointer transition duration-500" />
 
-      <div onClick={logIn} className={classNames(`border rounded-xl flex flex-col space-y-5 items-center justify-center p-8
+      <div
+        onClick={logIn}
+        className={classNames(
+          `border rounded-xl flex flex-col space-y-5 items-center justify-center p-8
         cursor-pointer hover:-translate-y-3 hover:border-red-500 transition duration-500`,
-         success ? 'bg-green-400' : loading && 'bg-orange-400'
-        )}>
+          success ? "bg-green-400" : loading && "bg-orange-400"
+        )}
+      >
         <div className="flex flex-col items-center justify-center">
           <h1 className=" text-3xl">Dash of</h1>
           <img src="./images/pdfLogo.png" alt="" className="h-40 w-40" />
