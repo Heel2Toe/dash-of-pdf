@@ -4,7 +4,7 @@ import { createJSONStorage, persist } from "zustand/middleware";
 interface UpdateUserProps{
     email?: string,
     currentPdf?: string,
-    randomVar: boolean
+    randomVar?: boolean
 }
 
 interface UserProps {
