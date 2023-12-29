@@ -9,7 +9,7 @@ import { uploadPdf } from "@/actions/pdfActions";
 const PdfUploader = ({}) => {
 
     const router = useRouter();
-    const {email, useEffectRefire} = useUser();
+    const {email, refetchPdfs} = useUser();
 
     const handleUpload = async (url : string) => {
         try{
@@ -17,7 +17,7 @@ const PdfUploader = ({}) => {
          if(result == 'ok'){
            router.push('/dash');
            toast.success('Pdf Uploaded');
-           useEffectRefire();
+           refetchPdfs();
          }
         }
         catch(err){

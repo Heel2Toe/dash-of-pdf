@@ -12,7 +12,7 @@ interface UserProps {
     currentPdf: string,
     randomVar: boolean,
     updateUser: (props: UpdateUserProps)=>void,
-    useEffectRefire: () => void,
+    refetchPdfs: () => void,
     logoutUser: () => void
 }
  
@@ -21,7 +21,7 @@ export const useUser = create(persist<UserProps>(
        email: '',
        currentPdf: '',
        randomVar: false,
-       useEffectRefire: () => set((state)=>({randomVar: !state.randomVar})),
+       refetchPdfs: () => set((state)=>({randomVar: !state.randomVar})),
        updateUser: (props: UpdateUserProps) => set((state)=> ({...state, ...props})),
        logoutUser: () => set(()=>({email: '', pdfs: [], currentPdf: ''}))
     }),

@@ -2,7 +2,7 @@ This is a nextjs project that allows users to create new pdfs from existing pdfs
 
 ## Getting Started
 
-First, run the development server:
+The frontend of this prject is hosted on vercel
 
 ```bash
 npm run dev
