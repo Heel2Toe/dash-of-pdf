@@ -1,36 +1,33 @@
-This is a nextjs project that allows users to create new pdfs from existing pdfs.. by rearrangin and deleting pages from existing ones
+# Dash of Pdf
 
-## Getting Started
+This is a Next.js project that allows users to create new PDFs from existing ones by rearranging and deleting pages.
 
-The frontend of this prject is hosted on vercel
+### Instructions to run
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Backend Setup
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Clone or download the backend repository from https://github.com/Heel2Toe/pdf-api
+- Navigate to the cloned folder and run `npm install` to install dependencies
+- Start the server by running `node app.js`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Frontend Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- The frontend is hosted on Vercel.
+- After running the nodejs server, access the app at https://dash-of-pdf.vercel.app
 
-## Learn More
+### Storage
 
-To learn more about Next.js, take a look at the following resources:
+The app uses Cloudinary and Firebase to enable each users to store their own PDFs.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Authentication
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The app uses google provider from firebase to authenticate users
 
-## Deploy on Vercel
+### Screenshots
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Screenshots of the app can be found in the `screenshots` folder.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Global State Management
+
+The app utilizes zustand to manage global states, such as user email.
+
