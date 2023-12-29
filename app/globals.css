@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+html,
+:root{
+  height: 100%;
+  margin: 0;
+  overflow-y:visible;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body::-webkit-scrollbar{
+  display: none;
+}
+
+
+.anim-box{
+animation: load-anim 2s infinite;
+}
+
+@keyframes load-anim {
+  0%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-20px);
+    color: red;
+    border-color: red;
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
