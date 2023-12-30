@@ -2,13 +2,12 @@
 import { CldUploadWidget } from 'next-cloudinary'
 import Button from "./ui/button";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
 import { useUser } from "@/hooks/useUser";
 import axios from 'axios';
 
 const PdfUploader = () => {
 
-    const router = useRouter();
+
     const {uid, refetchPdfs} = useUser();
 
     const handleUpload = async (url : string) => {

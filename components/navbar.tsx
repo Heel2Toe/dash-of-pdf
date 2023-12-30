@@ -7,7 +7,6 @@ import { auth } from "@/firebase";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import Button from "./ui/button";
-import { uploadPdf } from "@/actions/pdfActions";
 import PdfUploader from "./pdf-uploader";
 
 const Navbar = () => {
