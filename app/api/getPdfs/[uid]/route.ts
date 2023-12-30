@@ -9,9 +9,7 @@ export async function GET(req: Request, {params}: {params: {uid: string}}) {
         if(queryResult.empty){
           return new NextResponse('')
         }
-        const pdfs = queryResult.docs[0].data().pdfs;
-        console.log(pdfs);
-        
+        const pdfs = queryResult.docs[0].data().pdfs;        
         return new NextResponse(JSON.stringify(pdfs));
       }
       catch(err){

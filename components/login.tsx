@@ -8,6 +8,7 @@ import { Github } from "lucide-react";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "@/firebase";
 import axios from "axios";
+import Spinner from "./ui/spinner";
 
 const Login = () => {
   const { updateUser } = useUser();
@@ -42,11 +43,13 @@ const Login = () => {
       <div
         onClick={logIn}
         className={classNames(
-          `border rounded-xl flex flex-col space-y-5 items-center justify-center w-44 sm:w-72 p-4 sm:p-8
+          `relative border rounded-xl flex flex-col space-y-5 items-center justify-center w-44 sm:w-72 p-4 sm:p-8
         cursor-pointer hover:-translate-y-3 hover:border-red-500 transition duration-500`,
           success ? "bg-green-400" : loading && "bg-orange-400"
         )}
       >
+      <Spinner loading={loading}/>
+
         <div className="flex flex-col items-center justify-center">
           <h1 className="text-xs sm:text-3xl">Dash of</h1>
           <img src="./images/pdfLogo.png" alt="" className="h-16 w-16 sm:h-40 sm:w-40" />

@@ -10,8 +10,10 @@ export const getImages = async (url: string) => {
     });
     return result.data.dataUrls;
   } catch (err) {
-    toast.error('Something went wrong')
+    
+    toast.error('Pdf-api server is unavailable',{duration: 6000});
     console.log("GET_IMAGES", err);
+    return [];
   }
 };
 
