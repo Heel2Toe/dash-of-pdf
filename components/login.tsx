@@ -6,6 +6,9 @@ import toast from "react-hot-toast";
 import { useState } from "react";
 import classNames from "classnames";
 import { Github } from "lucide-react";
+import { signInWithPopup } from "firebase/auth";
+import { auth, provider } from "@/firebase";
+import axios from "axios";
 
 const Login = () => {
   const { updateUser } = useUser();
@@ -16,14 +19,15 @@ const Login = () => {
   const logIn = async () => {
     try {
       setLoading(true);
-      const result = await loginUser(updateUser);
-      if (result == "ok") {
-        setSuccess(true);
-        router.push("/dash");
-      }
-    } catch (err) {
+      const userAuth = await signInWithPopup(auth, provider);
+      const result = await axios.get(`/api/loginUser/${userAuth.user.uid}/${userAuth.user.displayName}`);
+      updateUser({uid: result.data});
+      setSuccess(true);
+      router.push('/dash');
+    
+    } catch {
       toast.error("Something went wrong");
-      console.log(err);
+      
     } finally {
       setLoading(false);
     }

@@ -4,21 +4,18 @@ import Button from "./ui/button";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/hooks/useUser";
-import { uploadPdf } from "@/actions/pdfActions";
+import axios from 'axios';
 
-const PdfUploader = ({}) => {
+const PdfUploader = () => {
 
     const router = useRouter();
-    const {email, refetchPdfs} = useUser();
+    const {uid, refetchPdfs} = useUser();
 
     const handleUpload = async (url : string) => {
         try{
-         const result = await uploadPdf(email, url);
-         if(result == 'ok'){
-           router.push('/dash');
-           toast.success('Pdf Uploaded');
-           refetchPdfs();
-         }
+         const result = await axios.post(`/api/uploadPdf`,{uid, url});
+         toast(result.data);       
+         refetchPdfs();
         }
         catch(err){
           toast.error('Something went wrong');

@@ -2,13 +2,13 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 interface UpdateUserProps{
-    email?: string,
+    uid?: string,
     currentPdf?: string,
     randomVar?: boolean
 }
 
 interface UserProps {
-    email: string,
+    uid: string,
     currentPdf: string,
     randomVar: boolean,
     updateUser: (props: UpdateUserProps)=>void,
@@ -18,7 +18,7 @@ interface UserProps {
  
 export const useUser = create(persist<UserProps>(
     (set) => ({
-       email: '',
+       uid: '',
        currentPdf: '',
        randomVar: false,
        refetchPdfs: () => set((state)=>({randomVar: !state.randomVar})),

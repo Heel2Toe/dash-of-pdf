@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import Header from "./header";
 import { redirect } from "next/navigation";
 import Loading from "./loading";
-import { displayPdfs } from "@/actions/pdfActions";
 import PdfCard from "./pdf-card";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 export interface PdfProps {
   pdfId: string;
@@ -16,22 +16,23 @@ export interface PdfProps {
 }
 
 const PdfList = () => {
-  const { email, randomVar } = useUser();
+  const { uid, randomVar } = useUser();
   const [pdfs, setPdfs] = useState<PdfProps[]>([]);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    if (!email){
+    if (!uid){
        toast.error('Unauthenticated');
        redirect("/");
     }
 
     const retrievePdfs = async () => {
       try {
-        const myPdfs = await displayPdfs(email);
-        setPdfs(myPdfs);
+        const myPdfs = await axios.get(`/api/getPdfs/${uid}`);
+        setPdfs(myPdfs.data);
       } catch (err) {
-        console.log("RETRIEVE_PDFS", err);
+        toast.error('Something went wrong');
+
       } finally {
         setMounted(true);
       }
