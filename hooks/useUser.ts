@@ -23,7 +23,7 @@ export const useUser = create(persist<UserProps>(
        randomVar: false,
        refetchPdfs: () => set((state)=>({randomVar: !state.randomVar})),
        updateUser: (props: UpdateUserProps) => set((state)=> ({...state, ...props})),
-       logoutUser: () => set(()=>({email: '', pdfs: [], currentPdf: ''}))
+       logoutUser: () => set(()=>({uid: '', pdfs: [], currentPdf: ''}))
     }),
     {
         name: 'dop-storage',
